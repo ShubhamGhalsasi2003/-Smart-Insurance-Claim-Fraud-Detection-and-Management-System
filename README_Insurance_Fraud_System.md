@@ -41,7 +41,7 @@ InsuranceFraudDetectionSystem/
 │   └── ...
 ├── ml_model/       # Flask API + ML model
 │   ├── app.py
-│   └── model.pkl
+│   └── fraud_model.pkl
 ├── sql/            # MySQL schema
 ├── README.md
 ```
@@ -167,7 +167,7 @@ java -jar target/insurance-fraud-backend.jar
 - 📄 Claim Form  
 - 📊 Admin Dashboard (fraud score included)
 
-See `/screenshots/` or use attached images.
+ Screenshots available in the folder
 
 ---
 
