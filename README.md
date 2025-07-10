@@ -1,5 +1,3 @@
-##Smart Insurance Claim Fraud Detection System
+# Smart Insurance Claim Fraud Detection System
 
-Built a full-stack ML-based fraud detection platform
-using Flask API and Java Spring Boot, deployed on
-AWS EC2 + RDS.
+This is a full-stack machine learning-based application for detecting fraudulent insurance claims. The system combines a Java Spring Boot frontend with a Flask-powered Python ML model backend, hosted on AWS infrastructure.
