@@ -1,4 +1,4 @@
-# 🚀 Insurance Fraud Detection System
+# Insurance Fraud Detection System
 
 This is a full-stack real-time web application for detecting fraudulent insurance claims using machine learning and cloud deployment. The project integrates:
 
@@ -31,7 +31,7 @@ This is a full-stack real-time web application for detecting fraudulent insuranc
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 InsuranceFraudDetectionSystem/
@@ -50,7 +50,7 @@ Here’s your entire **"Implementation Details (Code & Logic Breakdown)"** secti
 ---
 
 ````md
-## 🧪 Implementation Details (Code & Logic Breakdown)
+##  Implementation Details (Code & Logic Breakdown)
 
 
 
@@ -91,7 +91,7 @@ ResponseEntity<String> response = restTemplate.postForEntity(url, request, Strin
 
 ---
 
-### 🧠 Python (Flask + ML Model) – Fraud Detection API
+###  Python (Flask + ML Model) – Fraud Detection API
 
 #### 📌 Flask API Endpoint
 
@@ -120,7 +120,7 @@ def preprocess(data):
 
 ---
 
-### 🗄️ MySQL – Database (Java Integration)
+###  MySQL – Database (Java Integration)
 
 #### 📌 Spring Boot Entity
 
@@ -136,7 +136,7 @@ public class Claim {
 }
 ```
 
-## 🚦 How to Run
+##  How to Run
 
 ### ✅ 1. Run ML API
 ```bash
