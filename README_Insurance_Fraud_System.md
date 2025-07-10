@@ -45,8 +45,96 @@ InsuranceFraudDetectionSystem/
 ├── sql/            # MySQL schema
 ├── README.md
 ```
+Here’s your entire **"Implementation Details (Code & Logic Breakdown)"** section, converted into **GitHub-compatible Markdown format**, all in **one page**, properly structured and ready to be added to your `README.md`:
 
 ---
+
+````md
+## 🧪 Implementation Details (Code & Logic Breakdown)
+
+---
+
+### ⚙️ Java (Spring Boot) – Backend Logic
+
+#### 📌 Form Submission Controller
+
+```java
+@PostMapping("/submit-claim")
+public String submitClaim(@ModelAttribute Claim claim, @RequestParam("file") MultipartFile file) {
+    claimService.save(claim); // save claim data
+    double fraudScore = mlService.getFraudScore(claim); // call Flask API
+    claim.setFraudScore(fraudScore);
+    claimService.update(claim);
+    return "redirect:/confirmation";
+}
+````
+
+#### 📌 Calling Flask ML API
+
+```java
+RestTemplate restTemplate = new RestTemplate();
+String url = "http://localhost:5000/predict";
+HttpEntity<Claim> request = new HttpEntity<>(claim);
+ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
+```
+
+#### 📌 JSP Form Example
+
+```jsp
+<form action="/submit-claim" method="post" enctype="multipart/form-data">
+    Name: <input type="text" name="name" />
+    Amount: <input type="number" name="amount" />
+    Upload File: <input type="file" name="file" />
+    <button type="submit">Submit</button>
+</form>
+```
+
+---
+
+### 🧠 Python (Flask + ML Model) – Fraud Detection API
+
+#### 📌 Flask API Endpoint
+
+```python
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.get_json()
+    features = preprocess(data)
+    score = model.predict_proba([features])[0][1]
+    return jsonify({'fraud_score': float(score)})
+```
+
+#### 📌 Model Loading
+
+```python
+import joblib
+model = joblib.load('model.pkl')
+```
+
+#### 📌 Preprocessing Function
+
+```python
+def preprocess(data):
+    return [data['amount'], data['history'], data['region']]  # Example fields
+```
+
+---
+
+### 🗄️ MySQL – Database (Java Integration)
+
+#### 📌 Spring Boot Entity
+
+```java
+@Entity
+public class Claim {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private double amount;
+    private double fraudScore;
+}
+```
 
 ## 🚦 How to Run
 
