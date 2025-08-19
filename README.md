@@ -168,7 +168,9 @@ java -jar target/insurance-fraud-backend.jar
 **Shubham Ghalsasi**
  Final Year B.Tech – Cloud Computing
  MIT ADT University
- 🌐 GitHub Profile
- 💼 LinkedIn Profile
+ 
+    🌐 GitHub Profile
+    💼 LinkedIn Profile
+
 
 📧 Email: [ghalsasishubham@gmail.com](mailto:ghalsasishubham@gmail.com)
