@@ -166,6 +166,6 @@ java -jar target/insurance-fraud-backend.jar
 ##  Author
 
 **Shubham Ghalsasi**
-🎓 Final Year B.Tech – Cloud Computing
-🏫 MIT ADT University
+ Final Year B.Tech – Cloud Computing
+ MIT ADT University
 📧 Email: [ghalsasishubham@gmail.com](mailto:ghalsasishubham@gmail.com)
