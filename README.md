@@ -12,7 +12,7 @@
 
 
 
-## 📌 Problem Statement
+##  Problem Statement
 Insurance fraud costs companies billions each year.  
 Traditional claim verification processes are **time-consuming, error-prone, and costly**.  
 
@@ -20,17 +20,17 @@ Traditional claim verification processes are **time-consuming, error-prone, and 
 
 ---
 
-## 🚀 Features
-- 📝 **User Claim Submission** via a web form (JSP + Spring Boot).  
-- 📂 Upload **supporting documents** (PDF/images).  
-- 🤖 **Machine Learning model (Flask API)** predicts fraud probability score.  
-- 💾 All claims stored in **MySQL (local or AWS RDS)**.  
-- 📊 **Admin Dashboard** for viewing claims, fraud scores, and file links.  
-- ☁️ Hosted on **AWS EC2** for scalability.  
+##  Features
+-  **User Claim Submission** via a web form (JSP + Spring Boot).  
+-  Upload **supporting documents** (PDF/images).  
+-  **Machine Learning model (Flask API)** predicts fraud probability score.  
+-  All claims stored in **MySQL (local or AWS RDS)**.  
+-  **Admin Dashboard** for viewing claims, fraud scores, and file links.  
+-  Hosted on **AWS EC2** for scalability.  
 
 ---
 
-## 🧰 Technologies Used
+##  Technologies Used
 
 | Layer       | Technology Used               |
 |-------------|-------------------------------|
@@ -42,7 +42,7 @@ Traditional claim verification processes are **time-consuming, error-prone, and 
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 InsuranceFraudDetectionSystem/
 ├── backend/        # Java Spring Boot app
@@ -56,9 +56,9 @@ InsuranceFraudDetectionSystem/
 ├── README.md
 
 
-## ⚙️ Implementation Details (Code & Logic Breakdown)
+##  Implementation Details (Code & Logic Breakdown)
 
-### **1️⃣ Java (Spring Boot) – Backend Logic**
+### **1️ Java (Spring Boot) – Backend Logic**
 
 📌 **Form Submission Controller**
 java
@@ -71,7 +71,7 @@ public String submitClaim(@ModelAttribute Claim claim, @RequestParam("file") Mul
     return "redirect:/confirmation";
 }
 
-📌 **Calling Flask ML API**
+**Calling Flask ML API**
 
 java
 RestTemplate restTemplate = new RestTemplate();
@@ -79,8 +79,7 @@ String url = "http://localhost:5000/predict";
 HttpEntity<Claim> request = new HttpEntity<>(claim);
 ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
 
-
-📌 **JSP Claim Form**
+ **JSP Claim Form**
 
 html
 <form action="/submit-claim" method="post" enctype="multipart/form-data">
@@ -91,9 +90,9 @@ html
 </form>
 
 
-### **2️⃣ Python (Flask + ML Model) – Fraud Detection API**
+### **2️ Python (Flask + ML Model) – Fraud Detection API**
 
-📌 **Flask Endpoint**
+ **Flask Endpoint**
 
 python
 @app.route('/predict', methods=['POST'])
@@ -104,14 +103,14 @@ def predict():
     return jsonify({'fraud_score': float(score)})
 
 
-📌 **Model Loading**
+**Model Loading**
 
 python
 import joblib
 model = joblib.load('fraud_model.pkl')
 
 
-📌 **Preprocessing Function**
+**Preprocessing Function**
 
 python
 def preprocess(data):
@@ -119,9 +118,9 @@ def preprocess(data):
 
 
 
-### **3️⃣ MySQL Database – Java Integration**
+### **3️ MySQL Database – Java Integration**
 
-📌 **Spring Boot Entity**
+ **Spring Boot Entity**
 
 java
 @Entity
@@ -135,16 +134,16 @@ public class Claim {
 }
 
 
-## 🖥️ How to Run Locally
+##  How to Run Locally
 
-✅ **Step 1 – Run ML API**
+**Step 1 – Run ML API**
 
 bash
 cd ml_model
 pip install -r requirements.txt
 python app.py
 
-✅ **Step 2 – Run Java Backend**
+**Step 2 – Run Java Backend**
 
 bash
 cd backend
@@ -153,10 +152,10 @@ java -jar target/insurance-fraud-backend.jar
 
 
 
-## 🖼️ Screenshots
+##  Screenshots
 
-* 📄 Claim Form UI
-* 📊 Admin Dashboard with Fraud Scores
+*  Claim Form UI
+*  Admin Dashboard with Fraud Scores
   
 <img width="1024" height="1024" alt="3f7cca49-dd36-4f98-bb42-2b36998adce2" src="https://github.com/user-attachments/assets/595e7665-daa1-4d0e-b2d1-c73d2336df77" />
 <img width="1410" height="763" alt="89b2a810-0858-422d-b86d-f079c235ec02" src="https://github.com/user-attachments/assets/f81d60d4-4495-4f3c-9cca-6d2407b76f45" />
@@ -164,7 +163,7 @@ java -jar target/insurance-fraud-backend.jar
 
 
 
-## 👨‍💻 Author
+##  Author
 
 **Shubham Ghalsasi**
 🎓 Final Year B.Tech – Cloud Computing
