@@ -1,71 +1,53 @@
-# Problem Statement
-Smart Insurance Claim Fraud Detection System
-This is a full-stack machine learning-based application for detecting fraudulent insurance claims. The system combines a Java Spring Boot frontend with a Flask-powered Python ML model backend, hosted on AWS infrastructure.
+## 📌 Problem Statement
+Insurance fraud costs companies billions each year.  
+Traditional claim verification processes are **time-consuming, error-prone, and costly**.  
 
-
-
-
-# Insurance Fraud Detection System
-
-This is a full-stack real-time web application for detecting fraudulent insurance claims using machine learning and cloud deployment. The project integrates:
-
-- ✅ Java (Spring Boot + JSP)
-- ✅ Python (Flask + ML model)
-- ✅ SQL (MySQL)
-- ✅ AWS Cloud (EC2)
+➡️ This project provides a **real-time fraud detection system** using **Machine Learning + Cloud Deployment**, making the claim process more **efficient, scalable, and secure**.  
 
 ---
 
-## 📌 Features
-
-- Users can submit insurance claims via a web form
-- Upload supporting documents (PDF or images)
-- Machine Learning model (Flask API) returns fraud probability score
-- Claims are stored in MySQL (locally or AWS RDS)
-- Admin panel displays all claims, fraud scores, and file links
+## 🚀 Features
+- 📝 **User Claim Submission** via a web form (JSP + Spring Boot).  
+- 📂 Upload **supporting documents** (PDF/images).  
+- 🤖 **Machine Learning model (Flask API)** predicts fraud probability score.  
+- 💾 All claims stored in **MySQL (local or AWS RDS)**.  
+- 📊 **Admin Dashboard** for viewing claims, fraud scores, and file links.  
+- ☁️ Hosted on **AWS EC2** for scalability.  
 
 ---
 
 ## 🧰 Technologies Used
 
-| Layer       | Technology             |
-|-------------|------------------------|
-| Frontend    | JSP + HTML + CSS       |
-| Backend     | Java Spring Boot       |
+| Layer       | Technology Used               |
+|-------------|-------------------------------|
+| Frontend    | JSP + HTML + CSS              |
+| Backend     | Java (Spring Boot)            |
 | ML Model    | Python (Flask + scikit-learn) |
-| Database    | MySQL (local or AWS RDS) |
-| Hosting     | AWS EC2 (Java + Flask) |
+| Database    | MySQL (local / AWS RDS)       |
+| Hosting     | AWS EC2                       |
 
 ---
 
-##  Project Structure
+## 📂 Project Structure
 
-```
 InsuranceFraudDetectionSystem/
 ├── backend/        # Java Spring Boot app
 │   ├── src/
 │   ├── templates/
 │   └── ...
-├── ml_model/       # Flask API + ML model
+├── ml\_model/       # Flask API + ML model
 │   ├── app.py
-│   └── fraud_model.pkl
+│   └── fraud\_model.pkl
 ├── sql/            # MySQL schema
 ├── README.md
-```
-Here’s your entire **"Implementation Details (Code & Logic Breakdown)"** section, converted into **GitHub-compatible Markdown format**, all in **one page**, properly structured and ready to be added to your `README.md`:
-
----
-
-````md
-##  Implementation Details (Code & Logic Breakdown)
 
 
+## ⚙️ Implementation Details (Code & Logic Breakdown)
 
-## **⚙️ Java (Spring Boot) – Backend Logic**
+### **1️⃣ Java (Spring Boot) – Backend Logic**
 
-#### 📌 Form Submission Controller
-
-```java
+📌 **Form Submission Controller**
+java
 @PostMapping("/submit-claim")
 public String submitClaim(@ModelAttribute Claim claim, @RequestParam("file") MultipartFile file) {
     claimService.save(claim); // save claim data
@@ -74,64 +56,60 @@ public String submitClaim(@ModelAttribute Claim claim, @RequestParam("file") Mul
     claimService.update(claim);
     return "redirect:/confirmation";
 }
-````
 
-#### 📌 Calling Flask ML API
+📌 **Calling Flask ML API**
 
-```java
+java
 RestTemplate restTemplate = new RestTemplate();
 String url = "http://localhost:5000/predict";
 HttpEntity<Claim> request = new HttpEntity<>(claim);
 ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
-```
 
-#### 📌 JSP Form Example
 
-```jsp
+📌 **JSP Claim Form**
+
+html
 <form action="/submit-claim" method="post" enctype="multipart/form-data">
     Name: <input type="text" name="name" />
     Amount: <input type="number" name="amount" />
     Upload File: <input type="file" name="file" />
     <button type="submit">Submit</button>
 </form>
-```
 
----
 
-###  Python (Flask + ML Model) – Fraud Detection API
+### **2️⃣ Python (Flask + ML Model) – Fraud Detection API**
 
-#### 📌 Flask API Endpoint
+📌 **Flask Endpoint**
 
-```python
+python
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
     features = preprocess(data)
     score = model.predict_proba([features])[0][1]
     return jsonify({'fraud_score': float(score)})
-```
 
-#### 📌 Model Loading
 
-```python
+📌 **Model Loading**
+
+python
 import joblib
-model = joblib.load('model.pkl')
-```
+model = joblib.load('fraud_model.pkl')
 
-#### 📌 Preprocessing Function
 
-```python
+📌 **Preprocessing Function**
+
+python
 def preprocess(data):
     return [data['amount'], data['history'], data['region']]  # Example fields
-```
 
----
 
-###  MySQL – Database (Java Integration)
 
-#### 📌 Spring Boot Entity
+### **3️⃣ MySQL Database – Java Integration**
 
-```java
+📌 **Spring Boot Entity**
+
+java
 @Entity
 public class Claim {
     @Id
@@ -141,58 +119,40 @@ public class Claim {
     private double amount;
     private double fraudScore;
 }
-```
 
-##  How to Run
 
-### ✅ 1. Run ML API
-```bash
+## 🖥️ How to Run Locally
+
+✅ **Step 1 – Run ML API**
+
+bash
 cd ml_model
 pip install -r requirements.txt
 python app.py
-```
 
-### ✅ 2. Run Java Backend
-```bash
+✅ **Step 2 – Run Java Backend**
+
+bash
 cd backend
 mvn clean install
 java -jar target/insurance-fraud-backend.jar
-```
 
----
 
-## 🌐 URLs
-
-- Claim Form: `http://<your-ec2-ip>:8080/claim-form`
-- Admin Dashboard: `http://<your-ec2-ip>:8080/admin`
-- ML API Endpoint: `http://<your-ec2-ip>:5000/predict`
-
----
 
 ## 🖼️ Screenshots
 
-- 📄 Claim Form  
-- 📊 Admin Dashboard (fraud score included)
+* 📄 Claim Form UI
+* 📊 Admin Dashboard with Fraud Scores
+  
+<img width="1024" height="1024" alt="3f7cca49-dd36-4f98-bb42-2b36998adce2" src="https://github.com/user-attachments/assets/595e7665-daa1-4d0e-b2d1-c73d2336df77" />
+<img width="1410" height="763" alt="89b2a810-0858-422d-b86d-f079c235ec02" src="https://github.com/user-attachments/assets/f81d60d4-4495-4f3c-9cca-6d2407b76f45" />
+<img width="1536" height="1024" alt="2a91e642-dea1-4c95-84c4-1e87071bc0d9" src="https://github.com/user-attachments/assets/0d1cac50-0a7b-4776-8de1-4316322f53cd" />
 
- Screenshots available in the folder
 
----
 
-## 📦 Deployment (AWS EC2)
+## 👨‍💻 Author
 
-Run the script:
-```bash
-chmod +x aws_project_setup.sh
-./aws_project_setup.sh
-```
-
----
-
-## 📜 Author
-
-**Shubham Ghalsasi**  
-Final Year B.Tech - Cloud Computing  
-MIT ADT University
-
-For inquiries: ghalsasishubham@gmail.com
-
+**Shubham Ghalsasi**
+🎓 Final Year B.Tech – Cloud Computing
+🏫 MIT ADT University
+📧 Email: [ghalsasishubham@gmail.com](mailto:ghalsasishubham@gmail.com)
