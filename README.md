@@ -1,3 +1,11 @@
+![Frontend](https://img.shields.io/badge/Frontend-JSP-black) ![Python](https://img.shields.io/badge/Frontend-HTML-blue) ![SQL](https://img.shields.io/badge/Frontend-CSS-darkgreen) 
+![Backend](https://img.shields.io/badge/Backend-Java(Springboot)-black) 
+![ML](https://img.shields.io/badge/MLModel-Python(Flask+Scikit-learn)-black)
+![Datebase](https://img.shields.io/badge/MLModel-Database-Mysql(AWS-RDS)-black)
+![Hosting](https://img.shields.io/badge/MLModel-Hosting-AWS-EC2-black)
+
+
+
 ## 📌 Problem Statement
 Insurance fraud costs companies billions each year.  
 Traditional claim verification processes are **time-consuming, error-prone, and costly**.  
