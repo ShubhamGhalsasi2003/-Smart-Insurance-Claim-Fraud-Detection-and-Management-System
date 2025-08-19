@@ -60,7 +60,7 @@ InsuranceFraudDetectionSystem/
 
 ### **1️ Java (Spring Boot) – Backend Logic**
 
-📌 **Form Submission Controller**
+ **Form Submission Controller**
 java
 @PostMapping("/submit-claim")
 public String submitClaim(@ModelAttribute Claim claim, @RequestParam("file") MultipartFile file) {
