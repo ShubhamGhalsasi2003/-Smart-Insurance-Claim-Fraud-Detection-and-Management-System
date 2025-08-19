@@ -169,8 +169,4 @@ java -jar target/insurance-fraud-backend.jar
  Final Year B.Tech – Cloud Computing
  MIT ADT University
  
-    🌐 GitHub Profile
-    💼 LinkedIn Profile
-
-
 📧 Email: [ghalsasishubham@gmail.com](mailto:ghalsasishubham@gmail.com)
